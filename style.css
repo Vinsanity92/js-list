@@ -1,0 +1,77 @@
+body {
+    background: #efefe9;
+    color: #606272;
+}
+
+#main {
+    background: #ffffff;
+    height: auto;
+    margin-top: 50px;
+    -webkit-box-shadow: 0 -1px 5px 5px #ebebe7;
+box-shadow: 0 -1px 5px 5px #ebebe7;
+    padding: 40px;
+    position: relative;
+}
+.list-item {
+    /* width: 80%;
+    margin: 20px 5%; */
+    padding: 20px 0px;
+}
+#dateNow{
+    font-size: 25px;
+    float: left;
+    margin-top: -5px;
+    font-weight: bold;
+}
+.month {
+    font-size: 18px;
+    float: left;
+    font-weight: bold;
+}
+.year {
+    font-size: 18px;
+    float: left;
+}
+#clock {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+
+}
+#list .btn{
+    font-size: 10px;
+    margin-top: -5px;
+    border-radius: 31px;
+    width: 31px;
+    height: 31px;
+    opacity: 0;
+    position: relative;
+    right: -20px;
+    -webkit-transition: all 300ms ease;
+-moz-transition: all 300ms ease;
+-ms-transition: all 300ms ease;
+-o-transition: all 300ms ease;
+transition: all 300ms ease;
+}
+.list-item:hover .btn{
+    opacity: 1 !important;
+    right: 0px !important;
+}
+#add {
+    display: none;
+}
+.btn-success {
+    font-size: 40px;
+    position: absolute;
+    bottom: -40px;
+    left: calc(50% - 40px);
+    border-radius: 80px;
+    width: 80px;
+    height: 80px;
+    padding-top: 3px;
+    padding-bottom: 9px;
+}
+
+.full-date {
+    width: 100px;
+}
