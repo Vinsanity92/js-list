@@ -1,4 +1,6 @@
 var d = new Date();
+var items = [];
+
 
 function addItem(t){
      var tm = Date.now();
@@ -9,9 +11,15 @@ function addItem(t){
         div.innerHTML = toAdd;
         div.setAttribute('id','i'+tm)
         document.querySelector('#list').appendChild(div);
-        document.querySelector('#add').style.display="none";     
+        document.querySelector('#add').style.display="flex";     
         document.querySelector('#a').value='';
-    }
+        // // localStorage.setItem('item', JSON.stringify={"apple":"mansanas","mango":"manggan"});
+        // // document.getElementById("list").innerHTML = localStorage.getItem('item');
+       
+
+
+}
+        
 
 function delItem(i){
         document.querySelector('#list').removeChild(document.querySelector('#'+i));
@@ -27,6 +35,10 @@ function done(i) {
 function showAdd(){
     document.querySelector('#add').style.display="flex";
 }
+
+
+
+
 function currentTime() {
     var date = new Date(); /* creating object of Date class */
     var hour = date.getHours();
@@ -68,17 +80,20 @@ function currentTime() {
       var t = setTimeout(currentTime, 1000); /* setting timer */
   }
   
-  function updateTime(k) { /* appending 0 before time elements if less than 10 */
-    if (k < 10) {
-      return "0" + k;
-    }
-    else {
-      return k;
-    }
-  }
+  // function updateTime(k) { /* appending 0 before time elements if less than 10 */
+  //   if (k < 10) {
+  //     return "0" + k;
+  //   }
+  //   else {
+  //     return k;
+  //   }
+  // }
   function displayDate() {
-    var date = new Date();
+    var d = new Date();
 
-    document.getElementById("dateNow").innerHTML= date.toDateString();
-}
+    var h =`id="dateNow">('d+`+getDay+`')<span class="month">('d`+getMonth+`')</span>
+    <span class="year">('d`+getYear+`')</span></div>`;
+    document.querySelector('#dateNow').innerHTML=h;
+  }
+
 
