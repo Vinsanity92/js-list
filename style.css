@@ -23,6 +23,16 @@ box-shadow: 0 -1px 5px 5px #ebebe7;
     margin-top: -5px;
     font-weight: bold;
 }
+.d{
+    width: 100px;
+}
+
+.dateNow{
+    font-size: 25px;
+    float: left;
+    margin-top: -5px;
+    font-weight: bold;
+}
 .month {
     font-size: 18px;
     float: left;

@@ -1,23 +1,40 @@
 var d = new Date();
 var items = [];
+var items=localStorage.getItem("items");
+items=JSON.parse(items)
+if(items==null) items=[];
 
 
-function addItem(t){
-     var tm = Date.now();
-    var toAdd=`<input type="checkbox" id="i-c" class="form-check-input" onclick="done('i`+tm+`')">`+t+`<button class="btn btn-danger text-end" 
-                onclick="delItem('i`+tm+`');">X</button>`;
+
+
+function addItem(t,id){
+  var tm = Date.now();
+  if(!id) id='id'+tm;
+    var toAdd=`<input type="checkbox" id="i-c" class="form-check-input" 
+    onclick="done('id`+tm+`')">`+t+`<button class="btn btn-danger text-end" 
+                onclick="delItem('id`+tm+`');">X</button>`;
     var div = document.createElement("div");   
         div.setAttribute('class','list-item');
         div.innerHTML = toAdd;
-        div.setAttribute('id','i'+tm)
+        div.setAttribute('id','id'+tm)
         document.querySelector('#list').appendChild(div);
         document.querySelector('#add').style.display="flex";     
         document.querySelector('#a').value='';
         // // localStorage.setItem('item', JSON.stringify={"apple":"mansanas","mango":"manggan"});
         // // document.getElementById("list").innerHTML = localStorage.getItem('item');
+        var temp = '{"title":"'+t+'","id":"'+id+'"}';
+        console.log(temp);
+        temp=JSON.parse(temp);
+        items=localStorage.getItem("items");
+        console.log(items);
+        items=JSON.parse(items)
+        if(items==null) items=[];
+        items.push(temp);
+        items = JSON.stringify(items);
+        console.log(items);
+        localStorage.setItem('items',items);
        
-
-
+      
 }
         
 
@@ -90,10 +107,25 @@ function currentTime() {
   // }
   function displayDate() {
     var d = new Date();
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
 
-    var h =`id="dateNow">('d+`+getDay+`')<span class="month">('d`+getMonth+`')</span>
-    <span class="year">('d`+getYear+`')</span></div>`;
+    var h =`<div class="d"><span class="dateNow">`+d.getDate()+`</span>
+            <span class="month">`+month[d.getMonth()]+`</span>
+            <span class="year">`+d.getFullYear()+`</span></div>`;
+
     document.querySelector('#dateNow').innerHTML=h;
   }
-
+displayDate();
 
